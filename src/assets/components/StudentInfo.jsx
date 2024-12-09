@@ -63,6 +63,7 @@ function StudentInfo({ studentData, getStudents }) {
 	};
 
 	const handleDelete = async (id) => {
+		alert('Are you sure want to delete');
 		try {
 			const res = await fetch(`http://localhost:3000/students/${id}`, {
 				method: 'DELETE',

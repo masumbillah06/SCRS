@@ -65,6 +65,7 @@ function CourseInfo({ courseData, getCourses }) {
 	// };
 
 	const handleDelete = async (id) => {
+		alert('Are you sure want to delete');
 		try {
 			const res = await fetch(`http://localhost:3000/courses/${id}`, {
 				method: 'DELETE',
