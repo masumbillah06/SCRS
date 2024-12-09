@@ -62,34 +62,32 @@ function StudentInfo({ studentData, getStudents }) {
 		reset(student); // Pre-fill the form with the student's current data
 	};
 
-	const handleCancel = () => {
+	const handleDelete = async (id) => {
 		if (window.confirm('Are you sure you want to delete?')) {
 			alert('deleting');
-			// Add delete logic here
-		} else {
-			alert('Action canceled.');
-		}
-	};
+			try {
+				const res = await fetch(
+					`http://localhost:3000/students/${id}`,
+					{
+						method: 'DELETE',
+					}
+				);
+				const data = await res.json();
 
-	const handleDelete = async (id) => {
-		handleCancel();
-		try {
-			const res = await fetch(`http://localhost:3000/students/${id}`, {
-				method: 'DELETE',
-			});
-			const data = await res.json();
-
-			if (data.error) {
-				alert(data.error);
-				getStudents();
-			} else {
+				if (data.error) {
+					alert(data.error);
+					getStudents();
+				} else {
+					alert(`Deleted student with ID: ${id}`);
+					getStudents();
+				}
+			} catch (err) {
+				console.error('Error:', err.message);
 				alert(`Deleted student with ID: ${id}`);
 				getStudents();
 			}
-		} catch (err) {
-			console.error('Error:', err.message);
-			alert(`Deleted student with ID: ${id}`);
-			getStudents();
+		} else {
+			alert('Action canceled.');
 		}
 	};
 

@@ -64,34 +64,29 @@ function CourseInfo({ courseData, getCourses }) {
 	// 	reset(course); // Pre-fill the form with the course's current data
 	// };
 
-	const handleCancel = () => {
+	const handleDelete = async (id) => {
 		if (window.confirm('Are you sure you want to delete?')) {
 			alert('deleting....');
-			// Add delete logic here
-		} else {
-			alert('Action canceled.');
-		}
-	};
+			try {
+				const res = await fetch(`http://localhost:3000/courses/${id}`, {
+					method: 'DELETE',
+				});
+				const data = await res.json();
 
-	const handleDelete = async (id) => {
-		handleCancel();
-		try {
-			const res = await fetch(`http://localhost:3000/courses/${id}`, {
-				method: 'DELETE',
-			});
-			const data = await res.json();
-
-			if (data.error) {
-				alert(data.error);
-				getCourses();
-			} else {
+				if (data.error) {
+					alert(data.error);
+					getCourses();
+				} else {
+					alert(`Deleted course with ID: ${id}`);
+					getCourses();
+				}
+			} catch (err) {
+				console.error('Error:', err.message);
 				alert(`Deleted course with ID: ${id}`);
 				getCourses();
 			}
-		} catch (err) {
-			console.error('Error:', err.message);
-			alert(`Deleted course with ID: ${id}`);
-			getCourses();
+		} else {
+			alert('Action canceled.');
 		}
 	};
 
