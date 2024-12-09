@@ -62,8 +62,17 @@ function StudentInfo({ studentData, getStudents }) {
 		reset(student); // Pre-fill the form with the student's current data
 	};
 
+	const handleCancel = () => {
+		if (window.confirm('Are you sure you want to delete?')) {
+			alert('deleting');
+			// Add delete logic here
+		} else {
+			alert('Action canceled.');
+		}
+	};
+
 	const handleDelete = async (id) => {
-		alert('Are you sure want to delete');
+		handleCancel();
 		try {
 			const res = await fetch(`http://localhost:3000/students/${id}`, {
 				method: 'DELETE',

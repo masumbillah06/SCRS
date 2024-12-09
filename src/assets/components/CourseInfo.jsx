@@ -64,8 +64,17 @@ function CourseInfo({ courseData, getCourses }) {
 	// 	reset(course); // Pre-fill the form with the course's current data
 	// };
 
+	const handleCancel = () => {
+		if (window.confirm('Are you sure you want to delete?')) {
+			alert('deleting....');
+			// Add delete logic here
+		} else {
+			alert('Action canceled.');
+		}
+	};
+
 	const handleDelete = async (id) => {
-		alert('Are you sure want to delete');
+		handleCancel();
 		try {
 			const res = await fetch(`http://localhost:3000/courses/${id}`, {
 				method: 'DELETE',
