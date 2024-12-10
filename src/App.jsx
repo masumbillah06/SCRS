@@ -73,7 +73,7 @@ function App() {
 				</h1>
 
 				<div className='flex mt-16'>
-					<div className='w-1/5 h-auto bg-slate-600 mx-20 p-10 flex flex-col gap-10'>
+					<div className='w-1/5 h-4/5 bg-slate-600 mx-20 p-10 flex flex-col gap-10 sticky top-10'>
 						<button
 							onClick={(e) => handleClickBtn(e)}
 							name='student'
