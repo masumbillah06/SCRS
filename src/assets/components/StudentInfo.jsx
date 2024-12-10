@@ -249,13 +249,13 @@ function StudentInfo({ studentData, getStudents }) {
 										onClick={() =>
 											handleFullDetails(student)
 										}
-										className='bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-all'
+										className='bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-all mx-1'
 									>
 										Full Details
 									</button>
 									<button
 										onClick={() => handleUpdate(student)}
-										className='bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-all'
+										className='bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-all mx-1'
 									>
 										Update
 									</button>
@@ -263,7 +263,7 @@ function StudentInfo({ studentData, getStudents }) {
 										onClick={() =>
 											handleDelete(student.student_id)
 										}
-										className='bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-all'
+										className='bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition-all mx-1'
 									>
 										Delete
 									</button>
