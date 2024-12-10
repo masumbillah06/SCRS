@@ -44,7 +44,6 @@ function App() {
 			const studentData = await response.json();
 
 			setStudentData(studentData);
-			console.log('student called');
 		} catch (err) {
 			console.log(err.message);
 		}

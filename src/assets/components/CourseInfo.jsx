@@ -106,10 +106,10 @@ function CourseInfo({ courseData, getCourses }) {
 
 	return (
 		<div>
-			<h1 className='text-3xl font-semibold text-center mb-5'>
+			<div className='p-8 bg-gray-100 min-h-screen'>
+			<h1 className='text-3xl font-bold text-center mb-5'>
 				All Courses
 			</h1>
-			<div className='p-8 bg-gray-100 min-h-screen'>
 				<div className='mx-auto my-3'>
 					{/* Toggle form button */}
 					<button

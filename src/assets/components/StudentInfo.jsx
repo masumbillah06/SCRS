@@ -107,10 +107,10 @@ function StudentInfo({ studentData, getStudents }) {
 
 	return (
 		<div>
-			<h1 className='text-3xl font-semibold text-center mb-5'>
-				All Students
-			</h1>
 			<div className='p-8 bg-gray-100 min-h-screen'>
+				<h1 className='text-3xl font-bold text-center mb-5'>
+					All Students
+				</h1>
 				<div className='mx-auto my-3'>
 					{/* Toggle form button */}
 					<button
@@ -234,9 +234,8 @@ function StudentInfo({ studentData, getStudents }) {
 						{studentData.map((student, index) => (
 							<tr
 								key={student.student_id}
-								className={`${
-									index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
-								} hover:bg-gray-100`}
+								className={`${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
+									} hover:bg-gray-100`}
 							>
 								<td className='px-6 py-4 text-gray-800'>
 									{student.name}
